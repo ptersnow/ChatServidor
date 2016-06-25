@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws" xmlns:intf="http://ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getListaChat">
+    <complexType/>
+   </element>
+   <element name="getListaChatResponse">
+    <complexType>
+     <sequence>
+      <element name="getListaChatReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inserirChat">
+    <complexType>
+     <sequence>
+      <element name="Chat" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inserirChatResponse">
+    <complexType>
+     <sequence>
+      <element name="inserirChatReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getListaChatResponse">
+
+      <wsdl:part element="impl:getListaChatResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getListaChatRequest">
+
+      <wsdl:part element="impl:getListaChat" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inserirChatRequest">
+
+      <wsdl:part element="impl:inserirChat" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inserirChatResponse">
+
+      <wsdl:part element="impl:inserirChatResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ChatWS">
+
+      <wsdl:operation name="getListaChat">
+
+         <wsdl:input message="impl:getListaChatRequest" name="getListaChatRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getListaChatResponse" name="getListaChatResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="inserirChat">
+
+         <wsdl:input message="impl:inserirChatRequest" name="inserirChatRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:inserirChatResponse" name="inserirChatResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ChatWSSoapBinding" type="impl:ChatWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getListaChat">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getListaChatRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getListaChatResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="inserirChat">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="inserirChatRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="inserirChatResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ChatWSService">
+
+      <wsdl:port binding="impl:ChatWSSoapBinding" name="ChatWS">
+
+         <wsdlsoap:address location="http://localhost:8080/ChatServidor/services/ChatWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
